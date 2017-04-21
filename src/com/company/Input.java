@@ -106,14 +106,44 @@ public class Input {
 
             int typeCodeInt = Input.getPositiveIntInput();
 
-            if ( typeCodeInt > totalTypes || typeCodeInt < 1 ) {
+            if (typeCodeInt > totalTypes || typeCodeInt < 1) {
                 System.out.println("Please enter a valid type code number");
-            }
-
-            else {
+            } else {
                 return furnaceTypes.get(typeCodeInt);
             }
         }
     }
 
-}
+              /* Request a valid type from the water heater types allowed, based on the WaterHeaterTypes enum */
+        public static WaterHeater.WaterHeaterType getWaterHeaterType () {
+
+            //Build a TreeMap - a HashMap with sorted keys - of the valid types
+            TreeMap<Integer, WaterHeater.WaterHeaterType> WaterHeaterTypes = new TreeMap<Integer, WaterHeater.WaterHeaterType>();
+
+            int code = 1;
+            for (WaterHeater.WaterHeaterType type : WaterHeater.WaterHeaterType.values()) {
+                WaterHeaterTypes.put(code++, type);
+            }
+
+            int totalTypes = code - 1;   //If there are 3 types, then code will be 4 at the end of the loop.
+
+            // Display codes and types, ask user to enter code number corresponding to the desired type
+            // Validate that the type code entered is a valid one.
+            while (true) {
+
+                System.out.println("Enter type of water heater");
+
+                for (int typeCode : WaterHeaterTypes.keySet()) {
+                    System.out.println(typeCode + " " + WaterHeaterTypes.get(typeCode));
+                }
+
+                int typeCodeInt = Input.getPositiveIntInput();
+
+                if (typeCodeInt > totalTypes || typeCodeInt < 1) {
+                    System.out.println("Please enter a valid type code number");
+                } else {
+                    return WaterHeaterTypes.get(typeCodeInt);
+                }
+            }
+        }
+    }

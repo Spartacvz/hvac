@@ -1,12 +1,6 @@
 package com.company;
 
-
-
 import java.util.Date;
-
-/**
- * Represents a generic service call to a furnace, boiler, AC unit...
- */
 
 public class ServiceCall {
 
