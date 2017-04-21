@@ -1,33 +1,17 @@
-//import com.company.ServiceCall;
-//
-//import java.util.Date;
-//
-//public class WaterHeater extends ServiceCall {
-//
-//    private static int cityFee = 20;
-//
-//    public WaterHeater(String serviceAddress, String problemDescription, Date date, int cityFee) {
-//        super(serviceAddress, problemDescription, date);
-//    }
-//    public String toString()    {
-//
-//        return String.format("%s; %s; %s; %s; %s", serviceAddress, problemDescription, getReportedDate(), cityFee);
-//    }
-//}
-
-
 package com.company;
 
 import java.util.Date;
 
 public class WaterHeater extends ServiceCall {
 
+    public static int mandatoryFee = 20;
+
     /* An enum is a group of constants. Since the WaterHeater's type must be one of these, use
     an Enum to contain the allowed types.  */
     enum WaterHeaterType {
-        FORCED_AIR,
-        BOILER,
-        GRAVITY
+        Electric,
+        Gas,
+        Coal,
     }
 
     private WaterHeaterType type;

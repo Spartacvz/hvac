@@ -2,12 +2,6 @@ package com.company;
 
 import java.util.*;
 
-/**
- * Created by clara on 2/3/17.
- * User interface for managing service calls.
- *
- */
-
 public class ServiceCallManager {
 
     private LinkedList<ServiceCall> todayServiceCalls;
@@ -117,9 +111,9 @@ public class ServiceCallManager {
         String address = Input.getStringInput("Enter address of furnace");
         String problem = Input.getStringInput("Enter description of problem");
         Furnace.FurnaceType type = Input.getFurnaceType();
+
         Furnace f = new Furnace(address, problem, new Date(), type);
         todayServiceCalls.add(f);
-
         System.out.println("Added the following furnace to list of calls:\n" + f);
     }
 
@@ -143,18 +137,14 @@ public class ServiceCallManager {
         String address = Input.getStringInput("Enter address of water heater");
         String problem = Input.getStringInput("Enter description of problem");
         WaterHeater.WaterHeaterType type = Input.getWaterHeaterType();
+
         WaterHeater wh = new WaterHeater(address, problem, new Date(), type);
         todayServiceCalls.add(wh);
-
         System.out.println("Added the following WaterHeater to list of calls:\n" + wh);
     }
 
 
-    /* Resolve the call at the top of the queue
-     Call is resolved by removing it from the queue, asking user
-     for resolution and fee, and adding the call to the resolved calls queue
-     TODO - future version could allow user to resolve any call, not just the one at the top of the queue */
-    private void resolveServiceCall() {
+        private void resolveServiceCall() {
 
         if (todayServiceCalls.isEmpty()) {
             System.out.println("No service calls today");
